@@ -1,9 +1,6 @@
 package simpson;
 
-/**
- * Funcion gamma para enteros y semi-enteros (x = n o x = n + 1/2),
- * usando G(x) = (x-1) * G(x-1), G(1) = 1, G(1/2) = sqrt(pi).
- */
+
 public final class Gamma {
 
     private static final double EPS = 1e-9;

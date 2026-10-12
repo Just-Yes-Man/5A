@@ -2,7 +2,7 @@ package simpson;
 
 import java.util.function.DoubleUnaryOperator;
 
-/** Integracion numerica con la regla de Simpson. */
+
 public final class Simpson {
 
     public static final int DEFAULT_SEGMENTS = 10;
