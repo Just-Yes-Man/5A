@@ -2,7 +2,7 @@ package simpson;
 
 import java.util.function.DoubleUnaryOperator;
 
-/** Funcion de densidad de la distribucion t con 'dof' grados de libertad. */
+
 public final class TDistribution implements DoubleUnaryOperator {
 
     private final int dof;
