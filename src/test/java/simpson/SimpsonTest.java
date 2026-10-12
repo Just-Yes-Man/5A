@@ -9,18 +9,18 @@ class SimpsonTest {
 
     private static final double TOL = 0.00001;
 
-    // --- Gamma ---
+   
     @Test void gammaEntero() { assertEquals(24.0, Gamma.of(5), 1e-9); }
     @Test void gammaSemiEntero() { assertEquals(11.63173, Gamma.of(4.5), 1e-5); }
     @Test void gammaMedio() { assertEquals(Math.sqrt(Math.PI), Gamma.of(0.5), 1e-9); }
     @Test void gammaInvalido() { assertThrows(IllegalArgumentException.class, () -> Gamma.of(0)); }
 
-    // --- Funcion t ---
+    
     @Test void constanteEjemploPdf() {
         assertEquals(0.388035, new TDistribution(9).constant(), 1e-6);
     }
 
-    // --- Simpson con funciones del prototipo ---
+   
     @Test void triangulo() {
         assertEquals(16.0, Simpson.integrate(x -> 2 * x, 4, 4), 1e-9);
     }
@@ -28,12 +28,11 @@ class SimpsonTest {
         assertEquals(1.0 / 3.0, Simpson.integrate(x -> x * x, 1, 4), 1e-9);
     }
 
-    // --- Tabla 1 ---
+  
     @Test void tabla1Caso1() { assertEquals(0.35006, Simpson.tIntegral(1.1, 9), TOL); }
     @Test void tabla1Caso2() { assertEquals(0.36757, Simpson.tIntegral(1.1812, 10), TOL); }
     @Test void tabla1Caso3() { assertEquals(0.49500, Simpson.tIntegral(2.750, 30), TOL); }
 
-    // --- Ejemplo del PDF: 10 y 20 segmentos ---
     @Test void ejemploPdf10Segmentos() {
         assertEquals(0.3500589, Simpson.integrate(new TDistribution(9), 1.1, 10), 1e-6);
     }
@@ -41,7 +40,7 @@ class SimpsonTest {
         assertEquals(0.35005864, Simpson.integrate(new TDistribution(9), 1.1, 20), 1e-7);
     }
 
-    // --- Bordes y errores ---
+  
     @Test void xCeroDaCero() { assertEquals(0.0, Simpson.tIntegral(0, 9), 0.0); }
     @Test void simetriaCasiMitad() {
         // x muy grande: el area de 0 a x tiende a 0.5
