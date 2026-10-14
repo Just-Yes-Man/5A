@@ -24,7 +24,7 @@ public class Main {
         }
 
         Scanner in = new Scanner(System.in);
-        System.out.print("\nx (0 para salir): ");
+        System.out.print("\nx: ");
         while (in.hasNextDouble()) {
             double x = in.nextDouble();
             if (x == 0) {
