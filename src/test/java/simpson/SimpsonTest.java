@@ -40,6 +40,13 @@ class SimpsonTest {
         assertEquals(0.35005864, Simpson.integrate(new TDistribution(9), 1.1, 20), 1e-7);
     }
 
+    @Test void intervaloPersonalizado() {
+        assertEquals(
+                Simpson.tIntegral(1.1, 9) - Simpson.tIntegral(0.5, 9),
+                Simpson.tIntegral(0.5, 1.1, 9),
+                TOL);
+    }
+
   
     @Test void xCeroDaCero() { assertEquals(0.0, Simpson.tIntegral(0, 9), 0.0); }
     @Test void simetriaCasiMitad() {
