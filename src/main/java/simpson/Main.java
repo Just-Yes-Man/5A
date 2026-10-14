@@ -3,18 +3,16 @@ package simpson;
 import java.util.Locale;
 import java.util.Scanner;
 
-/**
- * Sin argumentos: ejecuta los 3 casos de la Tabla 1 y luego pide x y dof.
- * Con argumentos: java simpson.Main <x> <dof>
- */
+
 public class Main {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
-        if (args.length == 2) {
+        if (args.length == 2 || args.length == 3) {
             double x = Double.parseDouble(args[0]);
             int dof = Integer.parseInt(args[1]);
-            System.out.printf("p = %.5f%n", Simpson.tIntegral(x, dof));
+            double lower = args.length == 3 ? Double.parseDouble(args[2]) : 0;
+            System.out.printf("p = %.5f%n", Simpson.tIntegral(lower, x, dof));
             return;
         }
 
@@ -34,7 +32,9 @@ public class Main {
             }
             System.out.print("dof: ");
             int dof = in.nextInt();
-            System.out.printf("p = %.5f%n", Simpson.tIntegral(x, dof));
+            System.out.print("intervalo (límite inferior): ");
+            double lower = in.nextDouble();
+            System.out.printf("p = %.5f%n", Simpson.tIntegral(lower, x, dof));
             System.out.print("\nx (0 para salir): ");
         }
     }
