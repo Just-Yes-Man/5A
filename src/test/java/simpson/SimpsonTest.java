@@ -26,7 +26,7 @@ class SimpsonTest {
 
     
     @Test void constanteEjemploPdf() {
-        assertEquals(0.389, new TDistribution(9).constant(), 1e-6);
+        assertEquals(0.388035, new TDistribution(9).constant(), 1e-6);
     }
     @Test void distribucionEvaluaDensidad() {
         TDistribution distribution = new TDistribution(9);
