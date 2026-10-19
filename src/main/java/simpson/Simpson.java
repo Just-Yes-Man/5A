@@ -10,7 +10,7 @@ public final class Simpson {
 
     private Simpson() { }
 
-    /** Una sola pasada con num_seg segmentos (num_seg par). */
+   
     public static double integrate(DoubleUnaryOperator f, double x, int numSeg) {
         if (numSeg <= 0 || numSeg % 2 != 0) {
             throw new IllegalArgumentException("num_seg debe ser par y > 0: " + numSeg);
@@ -24,7 +24,7 @@ public final class Simpson {
         return (w / 3.0) * sum;
     }
 
-    /** Duplica num_seg hasta que |nuevo - anterior| < e. */
+
     public static double integrate(DoubleUnaryOperator f, double x, int numSeg, double e) {
         if (x < 0) {
             throw new IllegalArgumentException("x debe ser >= 0: " + x);
@@ -32,7 +32,7 @@ public final class Simpson {
         return integrate(f, 0, x, numSeg, e);
     }
 
-    /** Integra en el intervalo [lower, upper], refinando hasta alcanzar e. */
+    
     public static double integrate(
             DoubleUnaryOperator f, double lower, double upper, int numSeg, double e) {
         if (lower == upper) {
@@ -52,7 +52,7 @@ public final class Simpson {
         return current;
     }
 
-    /** Una sola pasada en el intervalo [lower, upper]. */
+    
     public static double integrate(
             DoubleUnaryOperator f, double lower, double upper, int numSeg) {
         if (numSeg <= 0 || numSeg % 2 != 0) {
@@ -67,7 +67,7 @@ public final class Simpson {
         return (w / 3.0) * sum;
     }
 
-    /** Integral de la t de 0 a x con valores por defecto. */
+  
     public static double tIntegral(double x, int dof) {
         if (x < 0) {
             throw new IllegalArgumentException("x debe ser >= 0: " + x);
@@ -75,7 +75,7 @@ public final class Simpson {
         return tIntegral(0, x, dof);
     }
 
-    /** Integral de la t en el intervalo [lower, upper] con valores por defecto. */
+    
     public static double tIntegral(double lower, double upper, int dof) {
         return integrate(new TDistribution(dof), lower, upper, DEFAULT_SEGMENTS, DEFAULT_ERROR);
     }
